@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+
+const EMBED_HOST = "https://joystick.leeyaso.com";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +32,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         {children}
+        <Script src={`${EMBED_HOST}/embed.js`} strategy="afterInteractive" />
       </body>
     </html>
   );
